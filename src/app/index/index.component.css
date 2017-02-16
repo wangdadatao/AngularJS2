@@ -1,0 +1,63 @@
+.background-img {
+  background: url("../../assets/img/in-back-ground.jpg") no-repeat fixed center 0;
+  background-size: cover;
+  -webkit-background-size: cover; /* 兼容Webkit内核浏览器如Chrome和Safari */
+  -o-background-size: cover; /* 兼容Opera */
+  zoom: 1;
+  height:100%;
+}
+
+.in-center-sq {
+  position: relative;
+  width: 500px;
+  height: 250px;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  margin-left: 50%;
+  top: 280px;
+  left: -250px;
+
+}
+
+.di-wi-cen {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.50);
+  width: 500px;
+  height: 40px;
+  top: 150px;
+}
+
+.di-nav-ul {
+  margin: 0;
+  padding: 0 0 0 10px;
+
+}
+
+.di-nav-ul li {
+  list-style: none;
+  float: left;
+  font-size: 24px;
+  line-height: 40px;
+}
+
+.li-italic-ko {
+  margin: 0 10px;
+}
+
+.di-nav-ul li > a {
+  font-style: italic;
+  color: #000;
+}
+
+.di-wi-head-my {
+  width: 100%;
+  position: absolute;
+  margin-top: 50px;
+}
+
+.di-wi-head-my p {
+  color: #ffffff;
+  font-size: 20px;
+  font-style: italic;
+  text-indent: 10px;
+}

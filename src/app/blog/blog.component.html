@@ -1,0 +1,43 @@
+<!-- 顶部导航 -->
+<div class="navbar navbar-fixed-top main-nav" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button  class="navbar-toggle" type="button" >
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand navbar-brand-my">
+        Blog
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-responsive-collapse" >
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a>全部</a>
+        </li>
+        <li class="dropdown">
+          <a>最新</a>
+        </li>
+        <li class="dropdown">
+          <a target="_blank">网摘</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 主体内容区域 -->
+<div class="container main-container">
+  <router-outlet></router-outlet>
+</div>
+<!-- 底部区域 -->
+<div class="footer bs-footer">
+  <div class="container">
+    <div class="row">
+      <p>
+        git for <a  target="_blank">WangDaTao</a>
+      </p>
+    </div>
+  </div>
+</div>
