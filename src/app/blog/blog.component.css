@@ -1,5 +1,5 @@
 .main-nav {
-  background: #6f5499;
+  background: #3bc699;
   height: 50px;
   min-height: 50px;
   padding: 0;
@@ -40,7 +40,6 @@
   padding: 40px 48px;
   background: #263238;
   color: #fff;
-  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;

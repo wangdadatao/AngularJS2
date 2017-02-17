@@ -1,0 +1,19 @@
+.bl-li-body{
+
+}
+
+.bl-li-ul{
+  padding:0;
+  margin:0;
+}
+
+.bl-li-li{
+  list-style: none;
+  height: 70px;
+  border-bottom: 1px dashed #d9d9d9;
+  margin-bottom: 18px;
+}
+.bl-li-li i{
+  color: #969696;
+}
+

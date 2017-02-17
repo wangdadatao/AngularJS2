@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {BlogService} from '../blog.service';
+
 @Component({
   selector: 'app-blog-list',
   templateUrl: './blog-list.component.html',
@@ -7,9 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogListComponent implements OnInit {
 
-  constructor() { }
+  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+  public backgroundColor; //背景颜色
+  public notes;//文章
+  public typeList; //文章类型
+  public type; //类型
+  public pageNum; //页码
+  public total; //总数
+  public pageSize;  //每页数量
+  public totalPages;  //总页
+
+
+  constructor(
+    public BlogService:BlogService
+  ) { }
 
   ngOnInit() {
+   this.queryNoteList(null,'1','20');
   }
 
+  public pageChanged(event:any):void {
+    // this.router.navigateByUrl("posts/page/"+event.page);
+    this.queryNoteList(null,event.page,'20');
+  }
+
+  //查询文章列表
+  queryNoteList(keyWords:string, pageNum:string, pageSize:string) {
+    this.BlogService.queryNoteList(keyWords,pageNum, pageSize)
+      .subscribe((result) => {
+        this.notes = result.content;
+        console.log(this.notes);
+        this.pageSize = result.options.pageSize;
+        this.total = result.options.total;
+        this.pageNum = result.options.pageNum;
+      });
+  }
 }
