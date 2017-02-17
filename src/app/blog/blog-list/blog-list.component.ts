@@ -15,7 +15,7 @@ export class BlogListComponent implements OnInit {
   public typeList; //文章类型
   public type; //类型
   public pageNum; //页码
-  public total; //总数
+  public total; //文章总数
   public pageSize;  //每页数量
   public totalPages;  //总页
 
@@ -25,7 +25,8 @@ export class BlogListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   this.queryNoteList(null,'1','20');
+    this.queryTypeList();
+    this.queryNoteList(null,'1','20');
   }
 
   public pageChanged(event:any):void {
@@ -33,15 +34,25 @@ export class BlogListComponent implements OnInit {
     this.queryNoteList(null,event.page,'20');
   }
 
+
+
   //查询文章列表
   queryNoteList(keyWords:string, pageNum:string, pageSize:string) {
     this.BlogService.queryNoteList(keyWords,pageNum, pageSize)
       .subscribe((result) => {
         this.notes = result.content;
-        console.log(this.notes);
         this.pageSize = result.options.pageSize;
         this.total = result.options.total;
         this.pageNum = result.options.pageNum;
       });
   }
+
+  //查询文章类型
+  queryTypeList(){
+    this.BlogService.queryTypeList()
+      .subscribe((result) => {
+        this.typeList = result.content;
+      })
+  }
+
 }

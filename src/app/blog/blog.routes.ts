@@ -16,12 +16,12 @@ export const blogRoutes=[
         component: BlogOneComponent
       },
       {
-        path: 'page/:page',
+        path: 'all',
         component: BlogListComponent
       },
       {
         path: '',
-        redirectTo: 'page/1',
+        redirectTo: 'all',
         pathMatch: 'full'
       },
       {

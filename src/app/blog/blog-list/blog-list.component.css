@@ -17,3 +17,10 @@
   color: #969696;
 }
 
+.bl-li-div-nav ul>li:hover{
+  background-color: rgba(59, 200, 154, 0.35);
+}
+
+.panel-heading{
+  background-color: #3bc699;
+}

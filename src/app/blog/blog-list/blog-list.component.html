@@ -12,6 +12,44 @@
   </ul>
   <pagination [totalItems]="total" [maxSize]="pageSize"[itemsPerPage]="pageNum"
               firstText="首页" lastText="末尾页"previousText="上一页" nextText="下一页"
-              [boundaryLinks]="true" (pageChanged)="pageChanged($event)" class="pagination-sm"></pagination>
+              [boundaryLinks]="true" (pageChanged)="pageChanged($event)" class="pagination-sm">
+
+  </pagination>
+</div>
+<div class="col-xs-3">
+
+  <!--资料-->
+  <div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">王海涛</h3>
+      </div>
+      <div class="panel-body">
+        <p><a href="#">头像图片</a></p>
+        <p><a href="#">{{currentUser?.userName}}</a></p>
+        <p>相看两不厌，唯有敬亭山。</p>
+        <p>文章：500</p>
+        <p>评论：10</p>
+      </div>
+    </div>
+  </div>
+
+  <!--导航-->
+  <div class="bl-li-div-nav">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">文章类别</h3>
+      </div>
+      <div class="list-group">
+        <ul class="bl-li-ul">
+          <li class="list-group-item" *ngFor="let type of typeList">
+            <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i> {{type}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  
 </div>
 
