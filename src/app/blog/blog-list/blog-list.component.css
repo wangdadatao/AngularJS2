@@ -13,11 +13,13 @@
   border-bottom: 1px dashed #d9d9d9;
   margin-bottom: 18px;
 }
+
 .bl-li-li i{
   color: #969696;
 }
 
 .bl-li-div-nav ul>li:hover{
+  cursor:pointer;
   background-color: rgba(59, 200, 154, 0.35);
 }
 

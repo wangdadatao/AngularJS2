@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule ,Http} from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+import { TranslateStaticLoader } from 'ng2-translate';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import {appRoutes} from './app.routes';
@@ -23,11 +24,7 @@ export function createTranslateLoader(http: Http) {
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
-    })
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

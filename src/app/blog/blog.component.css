@@ -17,8 +17,9 @@
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
+  cursor:pointer;
   color: #fff;
-  background-color: #777;
+  background-color: #31ba92;
 }
 
 .navbar-brand-my {

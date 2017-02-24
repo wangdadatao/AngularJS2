@@ -1,7 +1,7 @@
 <div class="bl-li-body col-xs-9">
   <ul class="bl-li-ul">
     <li class="bl-li-li"  *ngFor="let note of notes">
-      <h4><a href="" >{{note.title}}</a></h4>
+      <h4><a>{{note.title}}</a></h4>
       <p>
         <span class="bl-li-sp-type">{{note.type}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
         <span>{{note.createTime}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -10,9 +10,9 @@
       </p>
     </li>
   </ul>
-  <pagination [totalItems]="total" [maxSize]="pageSize"[itemsPerPage]="pageNum"
+  <pagination [totalItems]="total" [maxSize]="pageSize" [itemsPerPage]="pageSize" [(ngModel)]="currentPage"
               firstText="首页" lastText="末尾页"previousText="上一页" nextText="下一页"
-              [boundaryLinks]="true" (pageChanged)="pageChanged($event)" class="pagination-sm">
+              [boundaryLinks]="false" (pageChanged)="pageChanged($event)" class="pagination-sm">
 
   </pagination>
 </div>
@@ -25,11 +25,10 @@
         <h3 class="panel-title">王海涛</h3>
       </div>
       <div class="panel-body">
-        <p><a href="#">头像图片</a></p>
-        <p><a href="#">{{currentUser?.userName}}</a></p>
-        <p>相看两不厌，唯有敬亭山。</p>
-        <p>文章：500</p>
-        <p>评论：10</p>
+        <p><a href="#"><img src="http://7xtpnb.com1.z0.glb.clouddn.com/Fm_taHUOfEXYSCBuMKlsrI7m3rji" alt="头像"></a></p>
+        <!--<p>https://github.com/wangdadatao</p>-->
+        <p><i class="fa fa-git">: <a target="_blank" href="https://github.com/wangdadatao">wangdadatao</a></i></p>
+        <p><i class="fa fa-weibo">：<a>姜尸大叔</a></i></p>
       </div>
     </div>
   </div>
@@ -42,8 +41,8 @@
       </div>
       <div class="list-group">
         <ul class="bl-li-ul">
-          <li class="list-group-item" *ngFor="let Type of typeList">
-            <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i> {{Type.type}} ({{Type.num}})
+          <li class="list-group-item" *ngFor="let liType of typeList" (click)="changeType(liType.type)">
+            <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i> {{liType.type}} ({{liType.num}})
           </li>
         </ul>
       </div>

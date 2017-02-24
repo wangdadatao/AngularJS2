@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-blogList',
@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['../blog/blog.component.css']
 })
 export class BlogComponent {
-
 }
