@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {FormControl} from '@angular/forms';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import {BlogService} from '../blog.service';
 
@@ -25,6 +26,7 @@ export class BlogListComponent implements OnInit {
   constructor(public BlogService:BlogService) {
   }
 
+  //初始化
   ngOnInit() {
     this.queryTypeList();
     this.queryNoteList(null, '1', '20');

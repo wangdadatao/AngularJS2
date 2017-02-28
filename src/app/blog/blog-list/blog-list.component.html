@@ -1,16 +1,17 @@
 <div class="bl-li-body col-xs-9">
   <ul class="bl-li-ul">
     <li class="bl-li-li"  *ngFor="let note of notes">
-      <h4><a>{{note.title}}</a></h4>
+      <h4 [routerLink]="['/blog/blogDetail',note.id]"><a>{{note.title}}</a></h4>
       <p>
-        <span class="bl-li-sp-type">{{note.type}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span  class="bl-li-sp-type">{{note.type}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
         <span>{{note.createTime}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
         <i class="fa fa-eye"></i>&nbsp;{{note.id}}&nbsp;&nbsp;&nbsp;&nbsp;
         <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;{{note.id}}
       </p>
     </li>
   </ul>
-  <pagination [totalItems]="total" [maxSize]="pageSize" [itemsPerPage]="pageSize" [(ngModel)]="currentPage"
+
+  <pagination *ngIf="notes"  [totalItems]="total" [maxSize]="pageSize" [itemsPerPage]="pageSize" [(ngModel)]="currentPage"
               firstText="首页" lastText="末尾页"previousText="上一页" nextText="下一页"
               [boundaryLinks]="false" (pageChanged)="pageChanged($event)" class="pagination-sm">
 
