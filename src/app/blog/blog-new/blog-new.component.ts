@@ -70,9 +70,11 @@ export class BlogNewComponent implements OnInit ,AfterViewInit,OnDestroy {
         'emoticons template paste textcolor colorpicker textpattern imagetools codesample'
       ],
       toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-      toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+      toolbar2: 'fontsizeselect preview media | forecolor backcolor | codesample',
       image_advtab: true,
       codesample_content_css:'/assets/css/prism.css',
+      language_url:'/assets/langs/zh_CN.js',
+
       //文件和图片上传相关的选项
       file_browser_callback_types: 'image',
       file_browser_callback: function(field_name, url, type, win) {
