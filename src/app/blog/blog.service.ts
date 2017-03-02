@@ -41,6 +41,13 @@ export class BlogService {
     return this.makeRequest("note/queryByType", params);
   };
 
+  //根据ID查询文章
+  queryNoteById(id:string) {
+    let params = new URLSearchParams();
+    params.set('id', id);
+    return this.makeRequest("note/queryByID", params)
+  }
+
   private makeRequest(path:string, params:URLSearchParams) {
     //let url = `http://115.159.226.58:8080/${ path }`;
     let url = `http://localhost:8088/${ path }`;

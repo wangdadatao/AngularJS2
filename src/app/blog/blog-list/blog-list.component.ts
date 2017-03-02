@@ -48,11 +48,6 @@ export class BlogListComponent implements OnInit {
   queryNoteList(keyWords:string, pageNum:string, pageSize:string) {
     this.BlogService.queryNoteList(keyWords, pageNum, pageSize)
       .subscribe((result) => {
-        /*this.notes = result.content;
-         this.pageSize = result.options.pageSize;
-         this.total = result.options.total;
-         this.pageNum = result.options.pageNum;
-         this.totalPages = Math.ceil(this.total / this.pageSize);*/
         this.dealWithResult(result);
       });
   }

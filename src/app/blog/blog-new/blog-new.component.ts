@@ -1,39 +1,49 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, AfterViewInit, OnDestroy} from '@angular/core';
 
 @Component({
   selector: 'app-blog-new',
   templateUrl: './blog-new.component.html',
   styleUrls: ['./blog-new.component.css']
 })
-export class BlogNewComponent implements OnInit ,AfterViewInit,OnDestroy {
+export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
 
   public editor;
 
-  constructor() { }
+  public content;
+
+  public title;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  public fileInputChangeHandler():void{
+  submitNote() {
+    console.log(this.title);
+    console.log(this.content);
+  }
+
+  public fileInputChangeHandler():void {
     let fileInput = <HTMLInputElement>document.getElementById('img_input');
-    let inputValue=fileInput.value;
-    if(!inputValue){
+    let inputValue = fileInput.value;
+    if (!inputValue) {
       return;
     }
     //提交隐藏的表单，上传文件
-    let fileForm=<HTMLFormElement>document.getElementById('file_upload_form');
-    fileForm.action="fileuploadurl";
-    fileForm.onsubmit=function(event){
+    let fileForm = <HTMLFormElement>document.getElementById('file_upload_form');
+    fileForm.action = "fileuploadurl";
+    fileForm.onsubmit = function (event) {
       console.log(event);
       event.preventDefault();
-      let file=fileInput.files[0];
+      let file = fileInput.files[0];
       let formData = new FormData();
-      formData.append('file', file,file.name);
+      formData.append('file', file, file.name);
 
-      let xhr=new XMLHttpRequest();
+      let xhr = new XMLHttpRequest();
       xhr.withCredentials = false;
       xhr.open('POST', 'file_upload_URL.php');
-      xhr.onload = function() {
+      xhr.onload = function () {
         let json;
         if (xhr.status != 200) {
           console.log('HTTP Error: ' + xhr.status);
@@ -45,12 +55,12 @@ export class BlogNewComponent implements OnInit ,AfterViewInit,OnDestroy {
           return;
         }
         console.log(json.location);
-        fileInput.value='';
+        fileInput.value = '';
       };
       xhr.send(formData);
     }
     fileForm.submit();
-    fileInput.value='';
+    fileInput.value = '';
   }
 
 
@@ -72,15 +82,15 @@ export class BlogNewComponent implements OnInit ,AfterViewInit,OnDestroy {
       toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
       toolbar2: 'fontsizeselect preview media | forecolor backcolor | codesample',
       image_advtab: true,
-      codesample_content_css:'/assets/css/prism.css',
-      language_url:'/assets/langs/zh_CN.js',
+      codesample_content_css: '/assets/css/prism.css',
+      language_url: '/assets/langs/zh_CN.js',
 
       //文件和图片上传相关的选项
       file_browser_callback_types: 'image',
-      file_browser_callback: function(field_name, url, type, win) {
+      file_browser_callback: function (field_name, url, type, win) {
         console.log(type);
-        console.log(type=='image');
-        if(type=='image'){
+        console.log(type == 'image');
+        if (type == 'image') {
           let event = new MouseEvent('click', {
             'view': window,
             'bubbles': true,
@@ -94,7 +104,8 @@ export class BlogNewComponent implements OnInit ,AfterViewInit,OnDestroy {
         this.editor = editor;
         editor.on('keyup', () => {
           const content = editor.getContent();
-          console.log(content);
+          this.content = content;
+          // console.log(content);
         });
       }
     });

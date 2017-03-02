@@ -1,3 +1,12 @@
-<p>
-  blog-one works!
-</p>
+<div *ngIf="note">
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>{{note.title}}</h4>
+      <p>{{note.type}} {{note.createTime}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" [innerHTML]="note.content">
+    </div>
+  </div>
+</div>
