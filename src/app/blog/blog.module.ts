@@ -8,17 +8,19 @@ import {BlogComponent} from  './blog.component'
 import {BlogListComponent} from './blog-list/blog-list.component';
 import {BlogOneComponent} from './blog-one/blog-one.component';
 import {BlogNewComponent} from './blog-new/blog-new.component';
+import { BlogExcerptComponent } from './blog-excerpt/blog-excerpt.component';
 
 import {BlogService} from './blog.service'
-
 import {blogRoutes} from './blog.routes';
+
 
 @NgModule({
   declarations: [
     BlogComponent,
     BlogListComponent,
     BlogOneComponent,
-    BlogNewComponent
+    BlogNewComponent,
+    BlogExcerptComponent
   ],
   imports: [
     FormsModule,

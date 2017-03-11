@@ -1,11 +1,11 @@
+import {BlogComponent} from  './blog.component'
+import {BlogListComponent} from './blog-list/blog-list.component';
+import {BlogOneComponent} from './blog-one/blog-one.component';
+import {BlogNewComponent} from './blog-new/blog-new.component';
+import {BlogExcerptComponent} from './blog-excerpt/blog-excerpt.component';
 
-import {BlogComponent } from  './blog.component'
-import { BlogListComponent } from './blog-list/blog-list.component';
-import { BlogOneComponent } from './blog-one/blog-one.component';
-import { BlogNewComponent } from './blog-new/blog-new.component';
 
-
-export const blogRoutes=[
+export const blogRoutes = [
 
   {
     path: '',
@@ -27,6 +27,10 @@ export const blogRoutes=[
       {
         path: 'new',
         component: BlogNewComponent
+      },
+      {
+        path: 'excerpt',
+        component: BlogExcerptComponent
       }
     ]
   }

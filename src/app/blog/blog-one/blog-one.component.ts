@@ -27,7 +27,7 @@ export class BlogOneComponent implements OnInit {
    /*
     this.queryNoteById(this.blogId);*/
     this.getBlogId();
-    console.log(this.blogId);
+    // console.log(this.blogId);
     this.queryNoteById(this.blogId);
   }
 
