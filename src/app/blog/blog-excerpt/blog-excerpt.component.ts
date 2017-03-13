@@ -11,6 +11,8 @@ export class BlogExcerptComponent implements OnInit {
 
   public excerptUrl;
 
+  public note;
+
   constructor(public BlogService:BlogService) {
   }
 
@@ -18,7 +20,19 @@ export class BlogExcerptComponent implements OnInit {
   }
 
   analyzeUrl() {
-    console.log(this.excerptUrl);
+    if (this.excerptUrl) {
+      this.getUrlElement(this.excerptUrl);
+    } else {
+      alert("请输入URL");
+    }
+    console.log(this.note);
+  }
+
+  getUrlElement(url:string) {
+    this.BlogService.getUrlElement(url)
+      .subscribe((result) => {
+        this.note = result.content;
+      })
   }
 
 }

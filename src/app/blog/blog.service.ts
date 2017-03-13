@@ -48,6 +48,14 @@ export class BlogService {
     return this.makeRequest("note/queryByID", params)
   }
 
+  getUrlElement(url:string){
+    let params = new URLSearchParams();
+    params.set('url', url);
+    return this.makeRequest("api/url/getUrlElement", params)
+  }
+
+
+
   private makeRequest(path:string, params:URLSearchParams) {
     //let url = `http://115.159.226.58:8080/${ path }`;
     let url = `http://localhost:8088/${ path }`;
