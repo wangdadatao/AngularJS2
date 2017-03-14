@@ -13,13 +13,25 @@
     </div>
   </form>
 
-  <div class="container" *ngIf="note">
+  <div class="container bl-ex-div-con" *ngIf="note">
     <tabset>
-      <tab heading="Static title">{{note.content}}</tab>
-      <tab heading="Static title">
+      <tab heading="纯文字">
+        <h2>标题： {{note.title}}</h2>
+        <p>发布时间：{{note.time}} </p>
+        <p>查看原文：<a href="{{note.url}}" target="_blank">{{note.url}}</a></p>
+        <div>
+          {{note.content}}
+        </div>
+
+      </tab>
+      <tab heading="原文">
         <template tabHeading>
           <i class="glyphicon glyphicon-bell"></i>
         </template>
+        <h2>标题： {{note.title}}</h2>
+        <p>发布时间：{{note.time}} </p>
+        <p>查看原文：<a href="{{note.url}}" target="_blank">{{note.url}}</a></p>
+
         <div [innerHTML]="note.contentElement"></div>
       </tab>
     </tabset>
