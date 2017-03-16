@@ -1,5 +1,8 @@
 import {Component, OnInit, AfterViewInit, OnDestroy} from '@angular/core';
 
+import {Note} from "../model/note.model"
+import {BlogService} from '../blog.service';
+
 @Component({
   selector: 'app-blog-new',
   templateUrl: './blog-new.component.html',
@@ -9,20 +12,27 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
 
   public editor;
 
-  public content;
+  public note:Note = new Note();
 
-  public title;
-
-  constructor() {
+  constructor(public BlogService:BlogService) {
   }
 
   ngOnInit() {
   }
 
   submitNote() {
-    console.log(this.title);
-    console.log(this.content);
+    if (this.note) {
+      this.addNote(this.note);
+    }
   }
+
+  addNote(note:Note) {
+    this.BlogService.addNote(note)
+      .subscribe((result) => {
+        console.log(result);
+      });
+  }
+
 
   public fileInputChangeHandler():void {
     let fileInput = <HTMLInputElement>document.getElementById('img_input');
@@ -62,7 +72,6 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
     fileForm.submit();
     fileInput.value = '';
   }
-
 
   ngAfterViewInit() {
     /**
@@ -104,7 +113,7 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
         this.editor = editor;
         editor.on('keyup', () => {
           const content = editor.getContent();
-          this.content = content;
+          this.note.content = content;
           // console.log(content);
         });
       }

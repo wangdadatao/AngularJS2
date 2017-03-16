@@ -4,14 +4,14 @@ import {Observable} from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {Note} from "./model/note.model";
 
 
 @Injectable()
 export class BlogService {
-  public baseUrl = 'http://115.159.226.58:8088/';
-  public BlogListURL = this.baseUrl + 'note/queryNoteList';
 
   constructor(public http:Http) {
+
   }
 
   //查询文章列表
@@ -48,18 +48,42 @@ export class BlogService {
     return this.makeRequest("note/queryByID", params)
   }
 
-  getUrlElement(url:string){
+  getUrlElement(url:string) {
     let params = new URLSearchParams();
     params.set('url', url);
     return this.makeRequest("api/url/getUrlElement", params)
   }
 
+  //添加新的文章
+  addNote(note:Note) {
+/*
+    let params = new URLSearchParams();
+    params.set("title", note.title);
+    params.set("content", note.content);
+    params.set("type", note.type);
+*/
+
+    let formDate = new FormData();
+    formDate.append("title", note.title);
+    formDate.append("content", note.content);
+    formDate.append("type", note.type);
+
+    return this.sendPost("note/addNote", formDate);
+  }
 
 
   private makeRequest(path:string, params:URLSearchParams) {
     //let url = `http://115.159.226.58:8080/${ path }`;
     let url = `http://localhost:8088/${ path }`;
     return this.http.get(url, {search: params})
+      .map((res) => res.json());
+  }
+
+  private sendPost(path:string, params:FormData) {
+
+    //let url = `http://115.159.226.58:8080/${ path }`;
+    let url = `http://localhost:8088/${ path }`;
+    return this.http.post(url, params)
       .map((res) => res.json());
   }
 
