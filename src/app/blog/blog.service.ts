@@ -29,7 +29,7 @@ export class BlogService {
 
   //查询文章类型
   queryTypeList() {
-    return this.makeRequest("note/write/queryTypes", null)
+    return this.makeRequest("note/queryTypes", null)
   };
 
   //根据文章类型查询文章

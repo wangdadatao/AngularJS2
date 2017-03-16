@@ -5,6 +5,7 @@ import { HttpModule ,Http} from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { TranslateStaticLoader } from 'ng2-translate';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import {appRoutes} from './app.routes';
@@ -20,6 +21,7 @@ export function createTranslateLoader(http: Http) {
     IndexComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     HttpModule,
