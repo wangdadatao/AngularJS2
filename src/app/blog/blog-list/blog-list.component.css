@@ -23,6 +23,11 @@
   background-color: rgba(59, 200, 154, 0.35);
 }
 
+.bl-li-ty-div:hover{
+  cursor:pointer;
+  background-color: #31ba92;
+}
+
 .panel-heading{
   background-color: #3bc699;
 }

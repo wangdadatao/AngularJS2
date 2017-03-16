@@ -1,4 +1,5 @@
 import {Component, OnInit, AfterViewInit, OnDestroy} from '@angular/core';
+import {ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot} from '@angular/router';
 
 import {Note} from "../model/note.model"
 import {BlogService} from '../blog.service';
@@ -14,7 +15,8 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
 
   public note:Note = new Note();
 
-  constructor(public BlogService:BlogService) {
+  constructor(public router:Router,
+              public BlogService:BlogService) {
   }
 
   ngOnInit() {
@@ -29,7 +31,10 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
   addNote(note:Note) {
     this.BlogService.addNote(note)
       .subscribe((result) => {
-        console.log(result);
+        let status = result.content.status;
+        if (status == "true") {
+          this.router.navigateByUrl("/blog/blogDetail/" + result.content.id);
+        }
       });
   }
 

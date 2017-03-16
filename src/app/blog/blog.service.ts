@@ -9,9 +9,12 @@ import {Note} from "./model/note.model";
 
 @Injectable()
 export class BlogService {
-
+  
+  public BASEURL = 'http://localhost:8088/';
+  //public BASEURL = 'http://115.159.226.58:8080/';
+  
   constructor(public http:Http) {
-
+    
   }
 
   //查询文章列表
@@ -56,33 +59,22 @@ export class BlogService {
 
   //添加新的文章
   addNote(note:Note) {
-/*
-    let params = new URLSearchParams();
-    params.set("title", note.title);
-    params.set("content", note.content);
-    params.set("type", note.type);
-*/
-
     let formDate = new FormData();
     formDate.append("title", note.title);
     formDate.append("content", note.content);
     formDate.append("type", note.type);
-
     return this.sendPost("note/addNote", formDate);
   }
 
 
   private makeRequest(path:string, params:URLSearchParams) {
-    //let url = `http://115.159.226.58:8080/${ path }`;
-    let url = `http://localhost:8088/${ path }`;
+    let url = this.BASEURL + `${ path }`;
     return this.http.get(url, {search: params})
       .map((res) => res.json());
   }
 
   private sendPost(path:string, params:FormData) {
-
-    //let url = `http://115.159.226.58:8080/${ path }`;
-    let url = `http://localhost:8088/${ path }`;
+    let url = this.BASEURL + `${ path }`;
     return this.http.post(url, params)
       .map((res) => res.json());
   }

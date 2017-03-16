@@ -1,13 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import {ActivatedRoute, Router, Params} from '@angular/router';
+import {flyIn} from '../../animations/fly-in';
 
 import {BlogService} from '../blog.service';
 
 @Component({
   selector: 'app-blog-list',
   templateUrl: './blog-list.component.html',
-  styleUrls: ['./blog-list.component.css']
+  styleUrls: ['./blog-list.component.css'],
+  animations: [
+    flyIn
+  ]
 })
 export class BlogListComponent implements OnInit {
 
@@ -62,6 +66,8 @@ export class BlogListComponent implements OnInit {
 
   //根据分类查询文章
   queryByType(type:string, pageNum:string, pageSize:string) {
+
+    
     this.BlogService.queryByType(type, pageNum, pageSize)
       .subscribe((result) => {
         this.dealWithResult(result);
@@ -81,9 +87,16 @@ export class BlogListComponent implements OnInit {
 
   changeType(choiceType:string) {
     this.currentPage = 1;
-    console.log("选择的类别是：" + choiceType);
     this.type = choiceType;
-    this.queryByType(choiceType, '1', '20');
+    console.log("选择的类别是： " + this.type);
+
+    if (choiceType == undefined) {
+      this.ngOnInit();
+    } else {
+      this.queryByType(choiceType, '1', '20');
+    }
+
+
   }
 
 }
