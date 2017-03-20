@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import {appRoutes} from './app.routes';
 import { IndexComponent } from './index/index.component';
+import { TestComponent } from './test/test.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -18,7 +19,8 @@ export function createTranslateLoader(http: Http) {
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,

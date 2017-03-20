@@ -6,4 +6,19 @@ import {Component} from '@angular/core';
   styleUrls: ['../blog/blog.component.css']
 })
 export class BlogComponent {
+
+  public toggler = true;
+
+  constructor() {
+
+  }
+
+  toggle(div:any) {
+    if (this.toggler) {
+      div.target.classList.add("in");
+    } else {
+      div.target.classList.remove("in");
+    }
+    this.toggler = !this.toggler;
+  }
 }

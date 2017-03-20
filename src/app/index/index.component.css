@@ -8,21 +8,20 @@
 }
 
 .in-center-sq {
-  position: relative;
-  width: 500px;
+  position:absolute;
+  width: 400px;
   height: 250px;
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  margin-left: 50%;
-  top: 280px;
-  left: -250px;
-
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
 }
 
 .di-wi-cen {
   position: relative;
   background-color: rgba(255, 255, 255, 0.50);
-  width: 500px;
+  width: 400px;
   height: 40px;
   top: 150px;
 }
