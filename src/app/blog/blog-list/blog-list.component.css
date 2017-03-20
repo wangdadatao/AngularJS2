@@ -1,7 +1,3 @@
-.bl-li-body{
-
-}
-
 .bl-li-ul{
   padding:0;
   margin:0;
@@ -32,4 +28,7 @@
   background-color: #3bc699;
 }
 
+.bl-li-img-head{
+  width:100%;
+}
 

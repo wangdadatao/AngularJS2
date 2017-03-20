@@ -1,61 +1,59 @@
-<div class="container">
-  <div class="row">
+<div class="row">
 
-    <div class="bl-li-body col-xs-9" [@flyIn]="active">
-      <ul class="bl-li-ul">
-        <li class="bl-li-li" *ngFor="let note of notes">
-          <h4 [routerLink]="['/blog/blogDetail',note.id]"><a>{{note.title}}</a></h4>
-          <p>
-            <span class="bl-li-sp-type">{{note.type}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>{{note.createTime}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
-            <i class="fa fa-eye"></i>&nbsp;{{note.clickNum}}&nbsp;&nbsp;&nbsp;&nbsp;
-            <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;{{note.replyNum}}
+  <div class="bl-li-body col-md-9" [@flyIn]="active">
+    <ul class="bl-li-ul">
+      <li class="bl-li-li" *ngFor="let note of notes">
+        <h4 [routerLink]="['/blog/blogDetail',note.id]"><a>{{note.title}}</a></h4>
+        <p>
+          <span class="bl-li-sp-type">{{note.type}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          <span>{{note.createTime}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="fa fa-eye"></i>&nbsp;{{note.clickNum}}&nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;{{note.replyNum}}
+        </p>
+      </li>
+    </ul>
+
+    <!--分页插件-->
+    <pagination *ngIf="notes" [totalItems]="total" [maxSize]="pageSize" [itemsPerPage]="pageSize"
+                [(ngModel)]="currentPage"
+                firstText="首页" lastText="末尾页" previousText="上一页" nextText="下一页"
+                [boundaryLinks]="false" (pageChanged)="pageChanged($event)" class="pagination-sm">
+    </pagination>
+  </div>
+
+  <div class="col-md-3">
+    <!--资料-->
+    <div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">王海涛</h3>
+        </div>
+        <div class="panel-body">
+          <p><a href="#"><img class="bl-li-img-head" src="http://7xtpnb.com1.z0.glb.clouddn.com/Fm_taHUOfEXYSCBuMKlsrI7m3rji" alt="头像"></a>
           </p>
-        </li>
-      </ul>
-
-      <!--分页插件-->
-      <pagination *ngIf="notes" [totalItems]="total" [maxSize]="pageSize" [itemsPerPage]="pageSize"
-                  [(ngModel)]="currentPage"
-                  firstText="首页" lastText="末尾页" previousText="上一页" nextText="下一页"
-                  [boundaryLinks]="false" (pageChanged)="pageChanged($event)" class="pagination-sm">
-      </pagination>
+          <!--<p>https://github.com/wangdadatao</p>-->
+          <p><i class="fa fa-git">: <a target="_blank" href="https://github.com/wangdadatao">wangdadatao</a></i></p>
+          <p><i class="fa fa-weibo">：<a>姜尸大叔</a></i></p>
+        </div>
+      </div>
     </div>
 
-    <div class="col-xs-3">
-      <!--资料-->
-      <div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">王海涛</h3>
-          </div>
-          <div class="panel-body">
-            <p><a href="#"><img src="http://7xtpnb.com1.z0.glb.clouddn.com/Fm_taHUOfEXYSCBuMKlsrI7m3rji" alt="头像"></a>
-            </p>
-            <!--<p>https://github.com/wangdadatao</p>-->
-            <p><i class="fa fa-git">: <a target="_blank" href="https://github.com/wangdadatao">wangdadatao</a></i></p>
-            <p><i class="fa fa-weibo">：<a>姜尸大叔</a></i></p>
-          </div>
+    <!--导航-->
+    <div class="bl-li-div-nav">
+      <div class="panel panel-default">
+        <div class="panel-heading bl-li-ty-div" (click)="changeType()">
+          <h3 class="panel-title ">文章类别</h3>
+        </div>
+        <div class="list-group">
+          <ul class="bl-li-ul">
+            <li class="list-group-item" *ngFor="let liType of typeList" (click)="changeType(liType.type)">
+              <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i> {{liType.type}} ({{liType.num}})
+            </li>
+          </ul>
         </div>
       </div>
-
-      <!--导航-->
-      <div class="bl-li-div-nav">
-        <div class="panel panel-default">
-          <div class="panel-heading bl-li-ty-div" (click)="changeType()">
-            <h3 class="panel-title ">文章类别</h3>
-          </div>
-          <div class="list-group">
-            <ul class="bl-li-ul">
-              <li class="list-group-item" *ngFor="let liType of typeList" (click)="changeType(liType.type)">
-                <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i> {{liType.type}} ({{liType.num}})
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
     </div>
 
   </div>
+
 </div>

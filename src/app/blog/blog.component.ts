@@ -7,18 +7,9 @@ import {Component} from '@angular/core';
 })
 export class BlogComponent {
 
-  public toggler = true;
+  public toggler = false;
 
   constructor() {
-
   }
-
-  toggle(div:any) {
-    if (this.toggler) {
-      div.target.classList.add("in");
-    } else {
-      div.target.classList.remove("in");
-    }
-    this.toggler = !this.toggler;
-  }
+ 
 }
