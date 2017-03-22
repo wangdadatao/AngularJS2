@@ -12,6 +12,7 @@ import {BlogService} from '../blog.service';
 export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
 
   public editor;
+  public typeList;
 
   public note:Note = new Note();
 
@@ -20,6 +21,7 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
   }
 
   ngOnInit() {
+    this.queryTypeList();
   }
 
   submitNote() {
@@ -28,6 +30,15 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
     }
   }
 
+  //查询文章类型
+  queryTypeList() {
+    this.BlogService.queryTypeList()
+      .subscribe((result) => {
+        this.typeList = result.content;
+      })
+  }
+
+  //增加文章
   addNote(note:Note) {
     this.BlogService.addNote(note)
       .subscribe((result) => {

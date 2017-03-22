@@ -29,7 +29,8 @@
           <h3 class="panel-title">王海涛</h3>
         </div>
         <div class="panel-body">
-          <p><a href="#"><img class="bl-li-img-head" src="http://7xtpnb.com1.z0.glb.clouddn.com/Fm_taHUOfEXYSCBuMKlsrI7m3rji" alt="头像"></a>
+          <p><a href="#"><img class="bl-li-img-head"
+                              src="http://7xtpnb.com1.z0.glb.clouddn.com/Fm_taHUOfEXYSCBuMKlsrI7m3rji" alt="头像"></a>
           </p>
           <!--<p>https://github.com/wangdadatao</p>-->
           <p><i class="fa fa-git">: <a target="_blank" href="https://github.com/wangdadatao">wangdadatao</a></i></p>
@@ -41,11 +42,14 @@
     <!--导航-->
     <div class="bl-li-div-nav">
       <div class="panel panel-default">
-        <div class="panel-heading bl-li-ty-div" (click)="changeType()">
+        <div class="panel-heading bl-li-ty-div">
           <h3 class="panel-title ">文章类别</h3>
         </div>
         <div class="list-group">
           <ul class="bl-li-ul">
+            <li *ngIf="typeList" class="list-group-item" (click)="changeType()">
+              <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i> 全部
+            </li>
             <li class="list-group-item" *ngFor="let liType of typeList" (click)="changeType(liType.type)">
               <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i> {{liType.type}} ({{liType.num}})
             </li>

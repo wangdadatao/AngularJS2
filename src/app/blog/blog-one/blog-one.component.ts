@@ -15,6 +15,8 @@ export class BlogOneComponent implements OnInit {
 
   public note:Note;
 
+  public showContent:string;
+
   public blogId;
 
   constructor(public router:Router,
@@ -24,10 +26,7 @@ export class BlogOneComponent implements OnInit {
   }
 
   ngOnInit() {
-   /*
-    this.queryNoteById(this.blogId);*/
     this.getBlogId();
-    // console.log(this.blogId);
     this.queryNoteById(this.blogId);
   }
 
@@ -36,6 +35,7 @@ export class BlogOneComponent implements OnInit {
     this.BlogService.queryNoteById(id)
       .subscribe((result) => {
         this.note = result.content;
+        this.showContent = this.note.content;
         console.log(this.note.type);
         console.log(this.note.createTime);
       });
@@ -51,5 +51,17 @@ export class BlogOneComponent implements OnInit {
     );
   }
 
+  //显示不同的内容
+  showOther(num:number) {
+    if (num == 1) {
+      console.log(num);
+      this.showContent = this.note.content;
+    } else if (num == 2) {
+      console.log(num);
+      this.showContent = this.note.contentNoElement;
+    } else if (num == 3) {
+      console.log(num);
+    }
+  }
 
 }

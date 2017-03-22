@@ -1,0 +1,19 @@
+.bl-on-ul-gn {
+  list-style: none;
+  padding: 0;
+}
+
+.bl-on-ul-gn li {
+  border-bottom: 1px solid rgba(217, 217, 217, 0.71);
+}
+
+.bl-on-ul-gn li:hover{
+  cursor:pointer;
+  background-color: #f1f1f1;
+}
+
+.panel-heading{
+  background-color: #3bc699;
+}
+
+

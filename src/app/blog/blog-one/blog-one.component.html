@@ -1,12 +1,40 @@
 <div *ngIf="note">
   <div class="row">
     <div class="col-sm-12">
-      <h4>{{note.title}}</h4>
+      <h2 class="center-block">{{note.title}}</h2>
       <p>{{note.type}} {{note.createTime}}</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12" [innerHTML]="note.content">
+    <!--[innerHTML]="showContent" -->
+    <div class="col-md-8" [innerHTML]="showContent">
+      {{showContent}}
+    </div>
+
+    <div class="col-md-offset-1 col-md-3">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">功 能</div>
+        <div class="list-group">
+          <ul class="bl-on-ul-gn">
+            <li class="list-group-item" (click)="showOther(1)">原文</li>
+            <li class="list-group-item" (click)="showOther(2)">纯文本</li>
+            <li class="list-group-item" (click)="showOther(3)">大爆炸</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">统 计</div>
+        <div class="list-group">
+          <ul class="bl-on-ul-gn ">
+            <li class="list-group-item">总字数：3241</li>
+            <li class="list-group-item">总词数：928</li>
+            <li class="list-group-item">包含词数：82</li>
+            <li class="list-group-item">点击次数：29</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
