@@ -7,13 +7,19 @@
   border-bottom: 1px solid rgba(217, 217, 217, 0.71);
 }
 
-.bl-on-ul-gn li:hover{
-  cursor:pointer;
+.bl-on-ul-gn li:hover {
+  cursor: pointer;
   background-color: #f1f1f1;
 }
 
-.panel-heading{
-  background-color: #3bc699;
+.bl-on-di-show{
+  color: #565656;
 }
 
+.bl-on-di-show img {
+  max-width: 100%;
+}
 
+.bl-on-di-con{
+  padding: 0 0 150px;
+}

@@ -3,16 +3,16 @@
   min-height: 800px;
 }
 
-.navbar-default {
-  background: #3bc699;
-}
-
 .nav > li > a {
-  color: #fff;
+  color: #666666;
 }
 
 .navbar-brand-my {
-  color: #fff;
+  color: #333333;
+}
+
+.navbar-brand-my:hover {
+  cursor: pointer;
 }
 
 .nav > li.active,
@@ -22,8 +22,9 @@
 .nav .open > a:hover,
 .nav .open > a:focus {
   cursor: pointer;
-  color: #fff;
-  background-color: #31ba92;
+  color: #333333;
+  background-color: #d4d4d4;
+
 }
 
 .footer {
@@ -54,10 +55,5 @@
 .bl-nav-div-sear {
   padding: 0 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
-
-.bl-nav-i-sera {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
 }
 

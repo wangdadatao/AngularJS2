@@ -1,17 +1,18 @@
-<div *ngIf="note">
+<div *ngIf="note" class="bl-on-di-con">
   <div class="row">
-    <div class="col-sm-12">
-      <h2 class="center-block">{{note.title}}</h2>
-      <p>{{note.type}} {{note.createTime}}</p>
-    </div>
-  </div>
-  <div class="row">
-    <!--[innerHTML]="showContent" -->
-    <div class="col-md-8" [innerHTML]="showContent">
-      {{showContent}}
+    <div class="col-md-offset-1 col-md-7">
+      <div >
+        <h2 class="center-block">{{note.title}}</h2>
+        <p>{{note.type}} {{note.createTime}}</p>
+      </div>
+
+      <!--[innerHTML]="showContent" -->
+      <div class="bl-on-di-show" [@flyIn]="active" [innerHTML]="showContent">
+        {{showContent}}
+      </div>
     </div>
 
-    <div class="col-md-offset-1 col-md-3">
+    <div class="col-md-3">
 
       <div class="panel panel-default">
         <div class="panel-heading">功 能</div>
@@ -36,5 +37,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>

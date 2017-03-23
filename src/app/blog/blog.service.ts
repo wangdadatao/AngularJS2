@@ -10,8 +10,8 @@ import {Note} from "./model/note.model";
 @Injectable()
 export class BlogService {
 
-  public BASEURL = 'http://localhost:8088/';
-  //public BASEURL = 'http://115.159.226.58:8080/';
+  //public BASEURL = 'http://localhost:8088/';
+  public BASEURL = 'http://182.18.8.174:8080/';
 
   constructor(public http:Http) {
 

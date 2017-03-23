@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit,ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {flyIn} from '../../animations/fly-in';
 
 import {BlogService} from '../blog.service';
 import {Note} from "../model/note.model";
@@ -7,7 +8,11 @@ import {Note} from "../model/note.model";
 @Component({
   selector: 'app-blog-one',
   templateUrl: './blog-one.component.html',
-  styleUrls: ['./blog-one.component.css']
+  styleUrls: ['./blog-one.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    flyIn
+  ]
 })
 export class BlogOneComponent implements OnInit {
 
