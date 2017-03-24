@@ -1,13 +1,14 @@
 <div class="container">
 
-  <form class="form-vertical" role="form">
+  <form #form="ngForm" class="form-vertical" role="form" (ngSubmit)="analyzeUrl()">
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-md-12 input-lg">
         <div class="input-group">
-          <input class="form-control" [(ngModel)]="excerptUrl" type="text" id="searchText" name="searchText">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" (click)="analyzeUrl()" type="button">分析</button>
-                    </span>
+          <input required class="form-control" [(ngModel)]="excerptUrl"
+                 type="url" name="searchText" placeholder="请输入URL....">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">分析</button>
+          </span>
         </div>
       </div>
     </div>
@@ -15,15 +16,6 @@
 
   <div class="container bl-ex-div-con" *ngIf="note">
     <tabset>
-      <tab heading="纯文字">
-        <h2>标题： {{note.title}}</h2>
-        <p>发布时间：{{note.time}} </p>
-        <p>查看原文：<a href="{{note.url}}" target="_blank">{{note.url}}</a></p>
-        <div>
-          {{note.content}}
-        </div>
-
-      </tab>
       <tab heading="原文">
         <template tabHeading>
           <i class="glyphicon glyphicon-bell"></i>
@@ -31,9 +23,17 @@
         <h2>标题： {{note.title}}</h2>
         <p>发布时间：{{note.time}} </p>
         <p>查看原文：<a href="{{note.url}}" target="_blank">{{note.url}}</a></p>
-
         <div [innerHTML]="note.contentElement"></div>
       </tab>
+      <tab heading="纯文字">
+        <h2>标题： {{note.title}}</h2>
+        <p>发布时间：{{note.time}} </p>
+        <p>查看原文：<a href="{{note.url}}" target="_blank">{{note.url}}</a></p>
+        <div>212
+          {{note.content}}
+        </div>
+      </tab>
+
     </tabset>
   </div>
 

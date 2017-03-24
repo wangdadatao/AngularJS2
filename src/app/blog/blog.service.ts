@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Note} from "./model/note.model";
@@ -10,8 +11,8 @@ import {Note} from "./model/note.model";
 @Injectable()
 export class BlogService {
 
-  //public BASEURL = 'http://localhost:8088/';
-  public BASEURL = 'http://182.18.8.174:8080/';
+    public BASEURL = 'http://localhost:8088/';
+  //public BASEURL = 'http://182.18.8.174:8080/';
 
   constructor(public http:Http) {
 
