@@ -16,7 +16,7 @@ import {BlogService} from '../blog.service';
 export class BlogListComponent implements OnInit {
 
   public backgroundColor; //背景颜色
-  public notes;//文章
+  public blogs;//文章
   public typeList; //文章类型
   public type; //类型
   public pageNum; //页码
@@ -33,14 +33,14 @@ export class BlogListComponent implements OnInit {
   //初始化
   ngOnInit() {
     this.queryTypeList();
-    this.queryNoteList(null, '1', '20');
+    this.queryBlogList(null, '1', '20');
   }
 
   public pageChanged(event:any):void {
     // this.router.navigateByUrl("posts/page/"+event.page);
     this.pageNum = event.page;
     if (this.type == null) {
-      this.queryNoteList(null, event.page, '20');
+      this.queryBlogList(null, event.page, '20');
     } else {
       this.queryByType(this.type, event.page, '20');
     }
@@ -49,8 +49,8 @@ export class BlogListComponent implements OnInit {
 
 
   //查询文章列表
-  queryNoteList(keyWords:string, pageNum:string, pageSize:string) {
-    this.BlogService.queryNoteList(keyWords, pageNum, pageSize)
+  queryBlogList(keyWords:string, pageNum:string, pageSize:string) {
+    this.BlogService.queryBlogList(keyWords, pageNum, pageSize)
       .subscribe((result) => {
         this.dealWithResult(result);
       });
@@ -76,7 +76,7 @@ export class BlogListComponent implements OnInit {
 
   //处理请求结果
   dealWithResult(result) {
-    this.notes = result.content;
+    this.blogs = result.content;
     this.pageSize = result.options.pageSize;
     this.total = result.options.total;
     this.pageNum = result.options.pageNum;

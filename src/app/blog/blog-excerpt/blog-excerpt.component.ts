@@ -11,7 +11,7 @@ export class BlogExcerptComponent implements OnInit {
 
   public excerptUrl;
 
-  public note;
+  public blog;
 
   constructor(public BlogService:BlogService) {
   }
@@ -25,13 +25,13 @@ export class BlogExcerptComponent implements OnInit {
     } else {
       alert("请输入URL");
     }
-    console.log(this.note);
+    console.log(this.blog);
   }
 
   getUrlElement(url:string) {
     this.BlogService.getUrlElement(url)
       .subscribe((result) => {
-        this.note = result.content;
+        this.blog = result.content;
       })
   }
 

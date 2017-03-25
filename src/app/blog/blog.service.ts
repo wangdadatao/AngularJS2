@@ -1,25 +1,25 @@
 import {Injectable} from '@angular/core';
 import {Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
+import {Blog} from './model/blog.model';
 
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {Note} from "./model/note.model";
 
 
 @Injectable()
 export class BlogService {
 
-    public BASEURL = 'http://localhost:8088/';
-  //public BASEURL = 'http://182.18.8.174:8080/';
+  // public BASEURL = 'http://localhost:8088/';
+  public BASEURL = 'http://182.18.8.174:8080/';
 
   constructor(public http:Http) {
 
   }
 
   //查询文章列表
-  queryNoteList(keyWords:string, pageNum:string, pageSize:string) {
+  queryBlogList(keyWords:string, pageNum:string, pageSize:string) {
     let params = new URLSearchParams();
     params.set('pageNum', pageNum);
     params.set('pageSize', pageSize);
@@ -28,12 +28,12 @@ export class BlogService {
       params.set("keyWords", keyWords);
     }
 
-    return this.makeRequest("note/queryNoteList", params);
+    return this.makeRequest("blog/queryBlogList", params);
   };
 
   //查询文章类型
   queryTypeList() {
-    return this.makeRequest("note/queryTypes", null)
+    return this.makeRequest("blog/queryTypes", null)
   };
 
   //根据文章类型查询文章
@@ -42,14 +42,14 @@ export class BlogService {
     params.set('type', type);
     params.set('pageNum', pageNum);
     params.set('pageSize', pageSize);
-    return this.makeRequest("note/queryByType", params);
+    return this.makeRequest("blog/queryByType", params);
   };
 
   //根据ID查询文章
-  queryNoteById(id:string) {
+  queryBlogById(id:string) {
     let params = new URLSearchParams();
     params.set('id', id);
-    return this.makeRequest("note/queryByID", params)
+    return this.makeRequest("blog/queryByID", params)
   }
 
   getUrlElement(url:string) {
@@ -59,12 +59,12 @@ export class BlogService {
   }
 
   //添加新的文章
-  addNote(note:Note) {
+  addBlog(blog:Blog) {
     let formDate = new FormData();
-    formDate.append("title", note.title);
-    formDate.append("content", note.content);
-    formDate.append("type", note.type);
-    return this.sendPost("note/addNote", formDate);
+    formDate.append("title", blog.title);
+    formDate.append("content", blog.content);
+    formDate.append("type", blog.type);
+    return this.sendPost("blog/addBlog", formDate);
   }
 
 

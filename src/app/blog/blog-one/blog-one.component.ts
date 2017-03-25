@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {flyIn} from '../../animations/fly-in';
 
 import {BlogService} from '../blog.service';
-import {Note} from "../model/note.model";
+import {Blog} from "../model/blog.model";
 
 @Component({
   selector: 'app-blog-one',
@@ -18,7 +18,7 @@ export class BlogOneComponent implements OnInit {
 
   public test = "hahah";
 
-  public note:Note;
+  public blog:Blog;
 
   public showContent:string;
 
@@ -32,17 +32,17 @@ export class BlogOneComponent implements OnInit {
 
   ngOnInit() {
     this.getBlogId();
-    this.queryNoteById(this.blogId);
+    this.queryBlogById(this.blogId);
   }
 
   //根据ID查询文章
-  queryNoteById(id:string) {
-    this.BlogService.queryNoteById(id)
+  queryBlogById(id:string) {
+    this.BlogService.queryBlogById(id)
       .subscribe((result) => {
-        this.note = result.content;
-        this.showContent = this.note.content;
-        console.log(this.note.type);
-        console.log(this.note.createTime);
+        this.blog = result.content;
+        this.showContent = this.blog.content;
+        console.log(this.blog.type);
+        console.log(this.blog.createTime);
       });
   }
 
@@ -60,10 +60,10 @@ export class BlogOneComponent implements OnInit {
   showOther(num:number) {
     if (num == 1) {
       console.log(num);
-      this.showContent = this.note.content;
+      this.showContent = this.blog.content;
     } else if (num == 2) {
       console.log(num);
-      this.showContent = this.note.contentNoElement;
+      this.showContent = this.blog.contentNoElement;
     } else if (num == 3) {
       console.log(num);
     }

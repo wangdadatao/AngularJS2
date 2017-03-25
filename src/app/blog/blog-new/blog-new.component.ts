@@ -1,8 +1,8 @@
 import {Component, OnInit, AfterViewInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot} from '@angular/router';
 
-import {Note} from "../model/note.model"
 import {BlogService} from '../blog.service';
+import {Blog} from "../model/blog.model";
 
 @Component({
   selector: 'app-blog-new',
@@ -14,7 +14,7 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
   public editor;
   public typeList;
 
-  public note:Note = new Note();
+  public blog:Blog = new Blog();
 
   constructor(public router:Router,
               public BlogService:BlogService) {
@@ -24,9 +24,9 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
     this.queryTypeList();
   }
 
-  submitNote() {
-    if (this.note) {
-      this.addNote(this.note);
+  submitBlog() {
+    if (this.blog) {
+      this.addBlog(this.blog);
     }
   }
 
@@ -39,8 +39,8 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
   }
 
   //增加文章
-  addNote(note:Note) {
-    this.BlogService.addNote(note)
+  addBlog(blog:Blog) {
+    this.BlogService.addBlog(blog)
       .subscribe((result) => {
         let status = result.content.status;
         if (status == "true") {
@@ -129,7 +129,7 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
         this.editor = editor;
         editor.on('keyup', () => {
           const content = editor.getContent();
-          this.note.content = content;
+          this.blog.content = content;
           // console.log(content);
         });
       }

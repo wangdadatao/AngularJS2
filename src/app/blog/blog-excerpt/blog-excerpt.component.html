@@ -14,23 +14,23 @@
     </div>
   </form>
 
-  <div class="container bl-ex-div-con" *ngIf="note">
+  <div class="container bl-ex-div-con" *ngIf="blog">
     <tabset>
       <tab heading="原文">
         <template tabHeading>
           <i class="glyphicon glyphicon-bell"></i>
         </template>
-        <h2>标题： {{note.title}}</h2>
-        <p>发布时间：{{note.time}} </p>
-        <p>查看原文：<a href="{{note.url}}" target="_blank">{{note.url}}</a></p>
-        <div [innerHTML]="note.contentElement"></div>
+        <h2>标题： {{blog.title}}</h2>
+        <p>发布时间：{{blog.time}} </p>
+        <p>查看原文：<a href="{{blog.url}}" target="_blank">{{blog.url}}</a></p>
+        <div [innerHTML]="blog.contentElement"></div>
       </tab>
       <tab heading="纯文字">
-        <h2>标题： {{note.title}}</h2>
-        <p>发布时间：{{note.time}} </p>
-        <p>查看原文：<a href="{{note.url}}" target="_blank">{{note.url}}</a></p>
+        <h2>标题： {{blog.title}}</h2>
+        <p>发布时间：{{blog.time}} </p>
+        <p>查看原文：<a href="{{blog.url}}" target="_blank">{{blog.url}}</a></p>
         <div>212
-          {{note.content}}
+          {{blog.content}}
         </div>
       </tab>
 

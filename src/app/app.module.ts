@@ -12,6 +12,9 @@ import {appRoutes} from './app.routes';
 import {IndexComponent} from './index/index.component';
 import {TestComponent} from './test/test.component';
 import { AboutComponent } from './about/about.component';
+import { IdeaComponent } from './idea/idea.component';
+import { ApiComponent } from './api/api.component';
+import { UserComponent } from './user/user.component';
 
 export function createTranslateLoader(http:Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -22,7 +25,10 @@ export function createTranslateLoader(http:Http) {
     AppComponent,
     IndexComponent,
     TestComponent,
-    AboutComponent
+    AboutComponent,
+    IdeaComponent,
+    ApiComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
