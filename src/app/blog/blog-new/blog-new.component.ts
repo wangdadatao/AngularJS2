@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, AfterViewInit, OnDestroy, EventEmitter, Input} from '@angular/core';
 import {ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot} from '@angular/router';
 
 import {BlogService} from '../blog.service';
@@ -108,7 +108,7 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
       toolbar2: 'fontsizeselect preview media | forecolor backcolor | codesample',
       image_advtab: true,
       codesample_content_css: '/assets/css/prism.css',
-      // language_url: '/assets/langs/zh_CN.js',
+       language_url: '/assets/language/zh_CN.js',
 
       //文件和图片上传相关的选项
       file_browser_callback_types: 'image',
@@ -129,8 +129,8 @@ export class BlogNewComponent implements OnInit,AfterViewInit,OnDestroy {
         this.editor = editor;
         editor.on('keyup', () => {
           const content = editor.getContent();
+          console.log(content);
           this.blog.content = content;
-          // console.log(content);
         });
       }
     });

@@ -1,5 +1,5 @@
-.background-img {
-  background: url("http://7xtpnb.com1.z0.glb.clouddn.com/in-back-ground.jpg") no-repeat fixed center 0;
+#background-img {
+  /*background: url("http://7xtpnb.com1.z0.glb.clouddn.com/in-back-ground.jpg") no-repeat fixed center 0;*/
   background-size: cover;
   -webkit-background-size: cover; /* 兼容Webkit内核浏览器如Chrome和Safari */
   -o-background-size: cover; /* 兼容Opera */

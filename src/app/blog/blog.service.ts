@@ -12,7 +12,9 @@ import 'rxjs/add/operator/catch';
 export class BlogService {
 
   // public BASEURL = 'http://localhost:8088/';
-  public BASEURL = 'http://182.18.8.174:8080/';
+  public BASEURL = 'http://182.18.8.174:8080/bigidea/';
+
+
 
   constructor(public http:Http) {
 
@@ -20,6 +22,7 @@ export class BlogService {
 
   //查询文章列表
   queryBlogList(keyWords:string, pageNum:string, pageSize:string) {
+
     let params = new URLSearchParams();
     params.set('pageNum', pageNum);
     params.set('pageSize', pageSize);
