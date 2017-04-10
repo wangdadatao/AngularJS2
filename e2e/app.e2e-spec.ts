@@ -1,10 +1,10 @@
-import { BigideaPage } from './app.po';
+import { ProjectPage } from './app.po';
 
-describe('bigidea App', function() {
-  let page: BigideaPage;
+describe('project App', () => {
+  let page: ProjectPage;
 
   beforeEach(() => {
-    page = new BigideaPage();
+    page = new ProjectPage();
   });
 
   it('should display message saying app works', () => {

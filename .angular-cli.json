@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "version": "1.0.0",
     "name": "bigidea"
@@ -15,13 +16,13 @@
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.json",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
         "styles.css"
       ],
-      "scripts": [
-        "../node_modules/tinymce/tinymce.js",
+      "scripts": [  "../node_modules/tinymce/tinymce.js",
         "../node_modules/tinymce/themes/modern/theme.js",
         "../node_modules/tinymce/plugins/advlist/plugin.js",
         "../node_modules/tinymce/plugins/autolink/plugin.js",
@@ -54,14 +55,12 @@
         "../node_modules/tinymce/plugins/textcolor/plugin.js",
         "../node_modules/tinymce/plugins/colorpicker/plugin.js",
         "../node_modules/tinymce/plugins/textpattern/plugin.js",
-        "../node_modules/tinymce/plugins/imagetools/plugin.js"
-      ],
-	"environmentSource": "environments/environment.ts",
-	"environments": {
-		"dev": "environments/environment.ts",
-		"prod": "environments/environment.prod.ts"
-	}
-
+        "../node_modules/tinymce/plugins/imagetools/plugin.js"],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
     }
   ],
   "e2e": {
@@ -71,12 +70,13 @@
   },
   "lint": [
     {
-      "files": "src/**/*.ts",
-      "project": "src/tsconfig.json"
+      "project": "src/tsconfig.app.json"
     },
     {
-      "files": "e2e/**/*.ts",
-      "project": "e2e/tsconfig.json"
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
     }
   ],
   "test": {
@@ -86,18 +86,6 @@
   },
   "defaults": {
     "styleExt": "css",
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
-    },
-    "spec": {
-      "class": false,
-      "component": true,
-      "directive": true,
-      "module": false,
-      "pipe": true,
-      "service": true
-    }
+    "component": {}
   }
 }
