@@ -6,13 +6,13 @@ import {RouterModule} from '@angular/router';
 import {TranslateStaticLoader} from 'ng2-translate';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
 import {appRoutes} from './app.routes';
 import {IndexComponent} from './index/index.component';
 import {TestComponent} from './test/test.component';
 import { AboutComponent } from './about/about.component';
-import { IdeaComponent } from './idea/idea.component';
 import { ApiComponent } from './api/api.component';
 import { UserComponent } from './user/user.component';
 
@@ -26,11 +26,11 @@ export function createTranslateLoader(http:Http) {
     IndexComponent,
     TestComponent,
     AboutComponent,
-    IdeaComponent,
     ApiComponent,
     UserComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     BrowserModule,
     FormsModule,

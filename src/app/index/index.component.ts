@@ -9,7 +9,6 @@ import {Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular
 })
 export class IndexComponent implements OnInit {
 
-  //"http://www.bing.com/az/hprichbg/rb/MeerkatAmuck_ZH-CN5734433814_1366x768.jpg"
   public imgUrl:any;
 
   constructor(public http:Http) {
@@ -24,9 +23,6 @@ export class IndexComponent implements OnInit {
 
     this.makeRequest()
       .subscribe((result) => {
-        console.log(result);
-        console.log(result.content);
-        console.log(result.content.url);
         this.imgUrl = result.content.url;
         console.log(this.imgUrl);
 

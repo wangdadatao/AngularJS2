@@ -1,0 +1,10 @@
+.ab-count-div {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

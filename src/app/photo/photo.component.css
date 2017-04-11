@@ -1,6 +1,6 @@
 .main-container {
   padding-top: 15px;
-  min-height: 800px;
+  min-height: 750px;
 }
 
 .nav > li > a {
@@ -37,4 +37,23 @@
   bottom: 0;
 }
 
+.bl-nav-inp-sear {
+  padding: 5px 10px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  border: 0;
+  color: #fff;
+  transition: background-color .3s;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  background-color: transparent;
+  outline: none;
+}
+
+.bl-nav-div-sear {
+  padding: 0 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
+}
 
