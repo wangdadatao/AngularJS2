@@ -1,5 +1,5 @@
 import {PhotoComponent} from  './photo.component'
-import {WalkpaperComponent} from './walkpaper/walkpaper.component'
+import {WallpaperComponent} from './wallpaper/wallpaper.component'
 import {PhotoOneComponent} from './photo-one/photo-one.component'
 
 export const photoRoutes = [
@@ -10,12 +10,12 @@ export const photoRoutes = [
     children: [
       {
         path: '',
-        redirectTo: 'walkpaper',
+        redirectTo: 'wallpaper',
         pathMatch: 'full'
       },
       {
-        path: 'walkpaper',
-        component: WalkpaperComponent
+        path: 'wallpaper',
+        component: WallpaperComponent
       },
       {
         path: 'photoOne/:id',

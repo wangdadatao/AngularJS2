@@ -20,12 +20,20 @@ export class PhotoService {
   }
 
   //根据文章类型查询文章
-  queryWalkpaper(keyWords:string, pageNum, pageSize) {
+  queryWallpaper(keyWords:string, pageNum, pageSize) {
     let params = new URLSearchParams();
     params.set('keyWords', keyWords);
     params.set('pageNum', pageNum);
     params.set('pageSize', pageSize);
     return this.makeRequest("photo/walkpaper/queryWalkpaper", params);
+  };
+
+  //根据ID查询图片
+  queryById(id, type) {
+    let params = new URLSearchParams();
+    params.set('id', id);
+    params.set('type', type);
+    return this.makeRequest("photo/queryById", params);
   };
 
 

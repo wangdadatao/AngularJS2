@@ -1,3 +1,22 @@
-<p>
-  photo-one works!
-</p>
+<div class="container">
+  <div class="row" *ngIf="basePhoto">
+    <div>
+      <img style="width:100%" src="{{basePhoto.baseUrl}}" alt="">
+    </div>
+    <div class="ph-on-div-sim">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title ">相似图片</h3>
+        </div>
+        <div>
+          <ul class="ph-on-ul-sim">
+            <li *ngFor="let photo of similyPhoto">
+              <img src="{{photo.baseUrl}}" alt="{{photo.baseUrl}}" title="{{photo.name}}" (click)="showOne(photo.id)">
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

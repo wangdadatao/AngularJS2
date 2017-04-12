@@ -1,4 +1,4 @@
-export class Walkpaper {
+export class Wallpaper {
   id:number;
   baseUrl:string;
   "name":string;

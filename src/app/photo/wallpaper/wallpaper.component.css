@@ -14,7 +14,7 @@
 .ph-wa-ul li {
   list-style: none;
   float: left;
-  width: 282px;
+  width: 285px;
   height: 490px;
 }
 
@@ -24,5 +24,7 @@
 }
 
 .ph-wa-ul li :hover {
-  border: 1px blue solid;
+  padding: 3px;
 }
+
+

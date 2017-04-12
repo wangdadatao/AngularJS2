@@ -8,14 +8,14 @@ import {PhotoComponent} from  './photo.component'
 
 import {PhotoService} from './photo.service'
 import {photoRoutes} from './photo.routes';
-import { WalkpaperComponent } from './walkpaper/walkpaper.component';
+import { WallpaperComponent } from './wallpaper/wallpaper.component';
 import { PhotoOneComponent } from './photo-one/photo-one.component';
 
 
 @NgModule({
   declarations: [
     PhotoComponent,
-    WalkpaperComponent,
+    WallpaperComponent,
     PhotoOneComponent
   ],
   imports: [

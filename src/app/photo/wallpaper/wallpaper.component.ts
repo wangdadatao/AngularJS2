@@ -2,16 +2,16 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, Params} from '@angular/router';
 
 import {PhotoService} from '../photo.service'
-import {Walkpaper} from "../model/walkpaper.model";
+import {Wallpaper} from "../model/wallpaper.model";
 
 @Component({
-  selector: 'app-walkpaper',
-  templateUrl: './walkpaper.component.html',
-  styleUrls: ['./walkpaper.component.css']
+  selector: 'app-wallpaper',
+  templateUrl: './wallpaper.component.html',
+  styleUrls: ['./wallpaper.component.css']
 })
-export class WalkpaperComponent implements OnInit {
+export class WallpaperComponent implements OnInit {
 
-  public walkpapers:any[];
+  public wallpapers:any[];
   public keyWords;
 
   public pageNum = 1;
@@ -27,7 +27,7 @@ export class WalkpaperComponent implements OnInit {
 
 
   ngOnInit() {
-    this.queryWalkpaper(null, this.pageNum, this.pageSize);
+    this.queryWallpaper(null, this.pageNum, this.pageSize);
   }
 
   //关键词搜索壁纸
@@ -35,7 +35,7 @@ export class WalkpaperComponent implements OnInit {
     this.pageNum = 1;
     this.pageSize = 10;
     this.moreNum = 1;
-    this.queryWalkpaper(this.keyWords, this.pageNum, this.pageSize);
+    this.queryWallpaper(this.keyWords, this.pageNum, this.pageSize);
   }
 
   //监听滚动条
@@ -48,10 +48,10 @@ export class WalkpaperComponent implements OnInit {
     if (footHeight < 900 && this.moreNum - this.pageNum == 0) {
       console.log("加载更多。。。");
       this.pageNum++;
-      this.photoService.queryWalkpaper(this.keyWords, this.pageNum, this.pageSize)
+      this.photoService.queryWallpaper(this.keyWords, this.pageNum, this.pageSize)
         .subscribe((result) => {
           let resultContent:any[] = result.content;
-          this.walkpapers = this.walkpapers.concat(resultContent);
+          this.wallpapers = this.wallpapers.concat(resultContent);
           this.total = result.options.total;
           if (resultContent.length == this.pageSize) {
             this.moreNum++;
@@ -66,17 +66,17 @@ export class WalkpaperComponent implements OnInit {
     this.router.navigateByUrl('/photo/photoOne/' + id);
   }
 
-  updateSrc(event, walkpaper:Walkpaper) {
+  updateSrc(event, wallpaper:Wallpaper) {
     console.log(event.outerHeight);
 
-    event.src = walkpaper.baseUrl;
+    event.src = wallpaper.baseUrl;
   }
 
   //查询壁纸
-  queryWalkpaper(keyWords, pageNum, pageSize) {
-    this.photoService.queryWalkpaper(keyWords, pageNum, pageSize)
+  queryWallpaper(keyWords, pageNum, pageSize) {
+    this.photoService.queryWallpaper(keyWords, pageNum, pageSize)
       .subscribe((result) => {
-        this.walkpapers = result.content;
+        this.wallpapers = result.content;
         this.total = result.options.total;
       });
   }
