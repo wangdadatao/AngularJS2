@@ -44,7 +44,7 @@ export class BlogListComponent implements OnInit {
     } else {
       this.queryByType(this.type, event.page, '20');
     }
-
+    this.changeScrollBar();
   }
 
 
@@ -61,13 +61,11 @@ export class BlogListComponent implements OnInit {
     this.BlogService.queryTypeList()
       .subscribe((result) => {
         this.typeList = result.content;
-      })
+      });
   }
 
   //根据分类查询文章
   queryByType(type:string, pageNum:string, pageSize:string) {
-
-    
     this.BlogService.queryByType(type, pageNum, pageSize)
       .subscribe((result) => {
         this.dealWithResult(result);
@@ -84,7 +82,7 @@ export class BlogListComponent implements OnInit {
     console.log("总页数是： " + this.totalPages);
   }
 
-
+  //改变类别
   changeType(choiceType:string) {
     this.currentPage = 1;
     this.type = choiceType;
@@ -96,7 +94,11 @@ export class BlogListComponent implements OnInit {
       this.queryByType(choiceType, '1', '20');
     }
 
-
+    this.changeScrollBar();
   }
 
+  //滚动条指定
+  private changeScrollBar() {
+    document.body.scrollTop = 0;
+  }
 }

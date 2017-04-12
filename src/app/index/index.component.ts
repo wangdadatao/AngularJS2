@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot} from '@angular/router';
 import {Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular/http';
+import {Config} from '../config.model'
+
 
 @Component({
   selector: 'app-index',
@@ -8,6 +10,8 @@ import {Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+
+  public BASEURL = new Config().BASEURL;
 
   public imgUrl:any;
 
@@ -39,7 +43,7 @@ export class IndexComponent implements OnInit {
 
 
   private makeRequest() {
-    let url = "http://182.18.8.174:8080/bigidea/photo/getIndexImg";
+    let url = this.BASEURL + "photo/getIndexImg";
     return this.http.get(url)
       .map((res) => res.json());
   }

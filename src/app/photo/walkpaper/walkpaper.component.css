@@ -1,0 +1,28 @@
+.ph-wa-contain {
+  margin: 0 0 70px;
+}
+
+.ph-wa-di-search {
+  margin: 0 0 20px;
+}
+
+.ph-wa-ul {
+  padding: 0;
+  margin: 0;
+}
+
+.ph-wa-ul li {
+  list-style: none;
+  float: left;
+  width: 282px;
+  height: 490px;
+}
+
+.ph-wa-ul li img {
+  width: 100%;
+  height: 100%;
+}
+
+.ph-wa-ul li :hover {
+  border: 1px blue solid;
+}

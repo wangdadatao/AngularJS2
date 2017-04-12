@@ -9,12 +9,14 @@ import {PhotoComponent} from  './photo.component'
 import {PhotoService} from './photo.service'
 import {photoRoutes} from './photo.routes';
 import { WalkpaperComponent } from './walkpaper/walkpaper.component';
+import { PhotoOneComponent } from './photo-one/photo-one.component';
 
 
 @NgModule({
   declarations: [
     PhotoComponent,
-    WalkpaperComponent
+    WalkpaperComponent,
+    PhotoOneComponent
   ],
   imports: [
     FormsModule,

@@ -3,6 +3,8 @@ import {Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular
 import {Observable} from 'rxjs/Rx';
 import {Blog} from './model/blog.model';
 
+import {Config} from "../config.model"
+
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -11,9 +13,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class BlogService {
 
-  // public BASEURL = 'http://localhost:8088/';
-  public BASEURL = 'http://182.18.8.174:8080/bigidea/';
-
+  public BASEURL = new Config().BASEURL;
 
 
   constructor(public http:Http) {

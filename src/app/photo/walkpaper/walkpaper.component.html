@@ -1,3 +1,29 @@
-<p>
-  walkpaper works!
-</p>
+<div class="container ph-wa-contain">
+  <div class="ph-wa-di-search">
+    <form #form="ngForm" class="form-vertical" role="form" (ngSubmit)="searchPhoto()">
+      <div class="row">
+        <div class="col-md-12 input-lg">
+          <div class="input-group">
+            <input required class="form-control" [(ngModel)]="keyWords"
+                   type="text" name="searchText" placeholder="请输入关键词....">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">搜索</button>
+          </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <ul class="ph-wa-ul">
+      <li class="bl-li-li" *ngFor="let walkpaper of walkpapers">
+        <img src="{{walkpaper.baseUrl}}.227.318.jpg" title="{{walkpaper.name}}" alt="{{walkpaper.baseUrl}}"
+             onError="this.src=this.alt" (click)="showOne(walkpaper.id)">
+      </li>
+    </ul>
+  </div>
+
+</div>
+<div id="ph-wa-al-more" style="visibility: hidden;">加载更多</div>
+

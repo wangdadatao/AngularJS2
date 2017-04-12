@@ -1,0 +1,20 @@
+export class Walkpaper {
+  id:number;
+  baseUrl:string;
+  "name":string;
+  "size":string;
+  "uuidName":string;
+  "qiniuUrl":string;
+  "litUrl":string;
+  "litUuid":string;
+  "litMD5":string;
+  "litName":string;
+  "litSize":string;
+  "createTime":string;
+  "width":number;
+  "height":number;
+  "litWidth":number;
+  "litHeight":number;
+  "feature":string;
+  "md5":string
+}
