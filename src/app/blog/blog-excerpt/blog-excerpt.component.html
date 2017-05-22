@@ -15,26 +15,47 @@
   </form>
 
   <div class="container bl-ex-div-con" *ngIf="blog">
-    <tabset>
-      <tab heading="原文">
-        <template tabHeading>
-          <i class="glyphicon glyphicon-bell"></i>
-        </template>
-        <h2>标题： {{blog.title}}</h2>
-        <p>发布时间：{{blog.time}} </p>
-        <p>查看原文：<a href="{{blog.url}}" target="_blank">{{blog.url}}</a></p>
-        <div [innerHTML]="blog.contentElement"></div>
-      </tab>
-      <tab heading="纯文字">
-        <h2>标题： {{blog.title}}</h2>
-        <p>发布时间：{{blog.time}} </p>
-        <p>查看原文：<a href="{{blog.url}}" target="_blank">{{blog.url}}</a></p>
-        <div>
-          {{blog.content}}
+    <div class="col-md-7">
+      <tabset>
+        <tab heading="原文">
+          <template tabHeading>
+            <i class="glyphicon glyphicon-bell"></i>
+          </template>
+          <div [innerHTML]="blog.contentElement"></div>
+        </tab>
+        <tab heading="纯文字">
+          <div>
+            {{blog.content}}
+          </div>
+        </tab>
+      </tabset>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+      <div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">详细信息</h3>
+          </div>
+          <div class="list-group">
+            <ul class="bl-li-ul">
+              <li class="list-group-item">
+                <p title="{{blog.title}}">标题： {{blog.title}}</p>
+              </li>
+              <li class="list-group-item">
+                <p>发布时间：{{blog.time}}</p>
+              </li>
+              <li class="list-group-item">
+                <p title="{{blog.url}}">查看原文：<a href="{{blog.url}}" target="_blank">{{blog.url}}</a></p>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-success btn-sm btn-block">添加到收藏</button>
+              </li>
+            </ul>
+          </div>
         </div>
-      </tab>
-
-    </tabset>
+      </div>
+    </div>
   </div>
+
 
 </div>
